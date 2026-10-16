@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | UpSkill</title>
+  <meta name="description" content="The page you are looking for does not exist on UpSkill AI Career Platform.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,500;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0B1120;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-glass-hover: rgba(255, 255, 255, 0.2);
+      --primary: #E2856E;
+      --primary-hover: #D4745D;
+      --secondary: #38BDF8;
+      --accent: #A78BFA;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --danger: #EF4444;
+      --font-main: 'Inter', -apple-system, sans-serif;
+      --font-display: 'Syne', sans-serif;
+      --font-serif: 'Lora', Georgia, serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Background Glows */
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      top: -10%;
+      left: 15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #F97316, #E2856E);
+      animation: floatOrb 18s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      bottom: 5%;
+      right: 10%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, #38BDF8, #6366F1);
+      animation: floatOrb 22s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, 30px) scale(1.1); }
+      100% { transform: translate(-30px, -20px) scale(0.95); }
+    }
+
+    /* Top Navigation */
+    .error-header {
+      position: relative;
+      z-index: 10;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-glass);
+      backdrop-filter: blur(12px);
+      background: rgba(11, 17, 32, 0.6);
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .brand-logo-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(236, 72, 153, 0.2));
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #F97316 0%, #E2856E 50%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    /* Main Container */
+    .error-container {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    .error-card {
+      max-width: 780px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 28px;
+      backdrop-filter: blur(24px);
+      padding: 56px 48px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(226, 133, 110, 0.6), transparent);
+    }
+
+    /* Floating Status Badge */
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #FCA5A5;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+    }
+
+    /* Giant 404 Text */
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(6.5rem, 16vw, 10.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, #F97316 10%, #E2856E 50%, #A78BFA 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 40px rgba(226, 133, 110, 0.25);
+      margin-bottom: 14px;
+      user-select: none;
+      position: relative;
+    }
+
+    .error-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .error-description {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 540px;
+      margin: 0 auto 24px auto;
+    }
+
+    /* Diagnostic Path Pill */
+    .path-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+      font-family: monospace;
+      margin-bottom: 32px;
+      word-break: break-all;
+    }
+    .path-pill span {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Action Buttons */
+    .error-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #F97316 0%, #E2856E 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(226, 133, 110, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(226, 133, 110, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--border-glass);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-glass-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Quick Shortcuts Grid */
+    .shortcuts-title {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .shortcuts-title::before, .shortcuts-title::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+      background: var(--border-glass);
+    }
+
+    .shortcuts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .shortcut-card {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid var(--border-glass);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .shortcut-card:hover {
+      background: rgba(30, 41, 59, 0.85);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    .shortcut-icon {
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+    .shortcut-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .error-footer {
+      position: relative;
+      z-index: 10;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-glass);
+    }
+
+    @media (max-width: 640px) {
+      .error-header { padding: 18px 20px; }
+      .error-card { padding: 40px 24px; border-radius: 20px; }
+      .shortcuts-grid { grid-template-columns: repeat(2, 1fr); }
+      .error-actions { flex-direction: column; width: 100%; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Effects -->
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+
+  <!-- Header -->
+  <header class="error-header">
+    <a href="/" class="brand-link">
+      <div class="brand-logo-box" style="background: transparent; box-shadow: none; padding: 0; width: auto; height: auto;">
+        <img src="/favicon.svg" alt="UpSkill Logo" style="width: 38px; height: 38px; border-radius: 10px;">
+      </div>
+      <div class="brand-name">UpSkill</div>
+    </a>
+    <a href="/" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.82rem; border-radius: 10px;">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+  </header>
+
+  <!-- Error Presentation -->
+  <main class="error-container">
+    <div class="error-card">
+      <div class="error-badge">
+        <i class="fa-solid fa-triangle-exclamation"></i> Error 404 &middot; Route Not Found
+      </div>
+
+      <h1 class="error-code">404</h1>
+
+      <h2 class="error-heading">Lost in the Career Cosmos?</h2>
+      <p class="error-description">
+        The destination you requested does not exist or may have been relocated. Let's redirect your trajectory back toward your career goals.
+      </p>
+
+      <div class="path-pill">
+        <i class="fa-solid fa-compass"></i> Attempted path: <span id="bad-path">/page</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">
+          <i class="fa-solid fa-house"></i> Return to Dashboard
+        </a>
+        <button onclick="window.history.length > 1 ? window.history.back() : window.location.href='/'" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Go Back
+        </button>
+      </div>
+
+      <!-- Quick Platform Jump Links -->
+      <div class="shortcuts-title">Explore UpSkill Tools</div>
+      <div class="shortcuts-grid">
+        <a href="/#view-opportunities" class="shortcut-card" onclick="sessionStorage.setItem('upskill_jump', 'opportunities')">
+          <i class="fa-solid fa-file-invoice shortcut-icon"></i>
+          <span class="shortcut-label">Resume Builder</span>
+        </a>
+        <a href="/#view-learn" class="shortcut-card" onclick="sessionStorage.setItem('upskill_jump', 'learn')">
+          <i class="fa-solid fa-route shortcut-icon"></i>
+          <span class="shortcut-label">Roadmap</span>
+        </a>
+        <a href="/#view-interview" class="shortcut-card" onclick="sessionStorage.setItem('upskill_jump', 'interview')">
+          <i class="fa-solid fa-microphone-lines shortcut-icon"></i>
+          <span class="shortcut-label">AI Interviews</span>
+        </a>
+        <a href="/#view-mentor" class="shortcut-card" onclick="sessionStorage.setItem('upskill_jump', 'mentor')">
+          <i class="fa-solid fa-robot shortcut-icon"></i>
+          <span class="shortcut-label">AI Mentor</span>
+        </a>
+        <a href="/#security-section" class="shortcut-card" onclick="sessionStorage.setItem('upskill_jump', 'security')">
+          <i class="fa-solid fa-shield-halved shortcut-icon"></i>
+          <span class="shortcut-label">Security</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="error-footer">
+    &copy; 2026 UpSkill Platform &middot; AI-Powered Career Development & Intelligence
+  </footer>
+
+  <script>
+    // Display actual bad pathname
+    const pathElem = document.getElementById('bad-path');
+    if (pathElem) {
+      pathElem.textContent = window.location.pathname + window.location.search;
+    }
+  </script>
+</body>
+</html>

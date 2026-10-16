@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>403 — Access Restricted | UpSkill</title>
+  <meta name="description" content="Access restricted. Authentication or permissions required for this career resource.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,500;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0B1120;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-glass-hover: rgba(255, 255, 255, 0.2);
+      --primary: #E2856E;
+      --secondary: #38BDF8;
+      --warning: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-main: 'Inter', -apple-system, sans-serif;
+      --font-display: 'Syne', sans-serif;
+      --font-serif: 'Lora', Georgia, serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      top: -10%;
+      left: 20%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #F59E0B, #E2856E);
+    }
+    .orb-2 {
+      bottom: 5%;
+      right: 15%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, #38BDF8, #6366F1);
+    }
+
+    .error-header {
+      position: relative;
+      z-index: 10;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-glass);
+      backdrop-filter: blur(12px);
+      background: rgba(11, 17, 32, 0.6);
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .brand-logo-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(236, 72, 153, 0.2));
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #F97316 0%, #E2856E 50%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .error-container {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    .error-card {
+      max-width: 740px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 28px;
+      backdrop-filter: blur(24px);
+      padding: 56px 48px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #FCD34D;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+    }
+
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(6.5rem, 16vw, 10.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, #F59E0B 0%, #E2856E 50%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 40px rgba(245, 158, 11, 0.25);
+      margin-bottom: 14px;
+      user-select: none;
+    }
+
+    .error-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .error-description {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 32px auto;
+    }
+
+    .error-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #F97316 0%, #E2856E 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(226, 133, 110, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(226, 133, 110, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--border-glass);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-glass-hover);
+      transform: translateY(-2px);
+    }
+
+    .error-footer {
+      position: relative;
+      z-index: 10;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-glass);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+
+  <header class="error-header">
+    <a href="/" class="brand-link">
+      <div class="brand-logo-box" style="background: transparent; box-shadow: none; padding: 0; width: auto; height: auto;">
+        <img src="/favicon.svg" alt="UpSkill Logo" style="width: 38px; height: 38px; border-radius: 10px;">
+      </div>
+      <div class="brand-name">UpSkill</div>
+    </a>
+    <a href="/" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.82rem; border-radius: 10px;">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+  </header>
+
+  <main class="error-container">
+    <div class="error-card">
+      <div class="error-badge">
+        <i class="fa-solid fa-shield-halved"></i> Error 403 &middot; Restricted Access
+      </div>
+
+      <h1 class="error-code">403</h1>
+
+      <h2 class="error-heading">Security Perimeter Active</h2>
+      <p class="error-description">
+        You do not have the required permissions or authentication token to access this workspace resource. Please sign in with an authorized account.
+      </p>
+
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">
+          <i class="fa-solid fa-key"></i> Sign In to UpSkill
+        </a>
+        <a href="/" class="btn btn-secondary">
+          <i class="fa-solid fa-house"></i> Return to Dashboard
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="error-footer">
+    &copy; 2026 UpSkill Platform &middot; Protected by Workspace Firewall
+  </footer>
+</body>
+</html>
